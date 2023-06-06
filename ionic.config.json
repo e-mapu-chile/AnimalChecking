@@ -1,0 +1,7 @@
+{
+  "name": "AnimalCheckingBLE2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

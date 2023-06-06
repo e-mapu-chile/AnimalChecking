@@ -1,0 +1,226 @@
+<ion-header>
+  <ion-toolbar  >
+    <ion-grid class="background-header">
+      <ion-row>
+        <ion-col size="3">
+          <img src="../../../assets/logos/vacaTrasparente.png" width="50" height="50">
+        </ion-col>
+      
+        <ion-col size="3">
+        </ion-col>
+        <ion-col size="4">
+        
+        </ion-col>
+        <ion-col size="2">
+          <ion-button routerLink="/menu-principal">
+            <ion-icon name="home"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background-image">
+  
+  <ion-item color="none"><b style="margin-left: 40%;">M E N U</b></ion-item>
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="6">
+        <ion-button class="large-button" shape="round" expand="full" color="azulanimal" routerLink="/animal">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="../../../assets/icon/baston.png" width="50" height="50" style="border: solid 1px white;">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <b>Consultar</b>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button class="large-button" shape="round" expand="full" color="verde" routerLink="/multi-tareas">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="../../../assets/icon/multitarea.png" width="50" height="50" style="border: solid 1px white;">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <b>Multi-Tarea</b>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-button>
+      </ion-col>
+
+
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button class="large-button" shape="round" expand="full" color="azul2" routerLink="/filiacion-animal">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="../../../assets/icon/genetica.png" width="50" height="50" style="border: solid 1px white;">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <b>Filiación Animal</b>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button *ngIf="esCelular == 1" class="large-button" shape="round" expand="full" color="warning"
+          routerLink="/vuncular-baston">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col style="font-size: 10px;">
+                <p><b>Vincular-Baston</b></p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col size="4">
+        <ion-button class="large-button" shape="round" expand="full" color="celeste" routerLink="/menu-animal">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="../../../assets/icon/vaca.png" width="50" height="50" style="border: solid 1px white;">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <b>Animales</b>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="4">
+        <ion-button class="large-button" shape="round" expand="full" color="naranjo1" routerLink="/menu-lotes">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="../../../assets/icon/lote.png" width="50" height="50" style="border: solid 1px white;">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <b>Lotes</b>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="4">
+        <ion-button class="large-button" shape="round" expand="full" color="rosa">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="../../../assets/icon/tareas.png" width="50" height="50" style="border: solid 1px white;">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <b>Tareas</b>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <ion-button class="large-button" shape="round" expand="full" color="verde">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="../../../assets/icon/forraje.png" width="50" height="50" style="border: solid 1px white;">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <b>Forraje</b>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button class="large-button" shape="round" expand="full" color="morado">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="../../../assets/icon/informe.png" width="50" height="50" style="border: solid 1px white;">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <b>Informes</b>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button *ngIf="esCelular == 1" class="large-button" shape="round" expand="full" color="warning"
+          routerLink="/vuncular-baston">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col style="font-size: 10px;">
+                <p><b>Vincular</b></p>
+                <p><b>Celular</b></p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-button>
+      </ion-col>
+
+
+    </ion-row>
+
+  </ion-grid> -->
+
+</ion-content>

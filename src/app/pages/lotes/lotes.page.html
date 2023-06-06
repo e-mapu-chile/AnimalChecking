@@ -1,0 +1,140 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <img src="../../../assets/logos/vacaTrasparente.png" width="50" height="50">
+        </ion-col>
+        <ion-col size="7">
+          <p>Animal Checking Platform</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+     <ion-button slot="end" routerLink="/menu-lotes">
+      <ion-icon name="home"></ion-icon>
+    </ion-button> 
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="nodoPadre" *ngFor="let item of rupsUsuario">
+    <ion-grid>
+      <ion-row class="nodoPadreHeader">
+        <ion-col size="2">
+          <ion-icon name="caret-down-outline" (click)="showhide()"></ion-icon>
+       
+        </ion-col>
+        <ion-col size="6">
+          RUP: {{item.dataAnimal[0].rup}}
+        </ion-col>
+        <ion-col>
+          <ion-button size="small">
+            <ion-icon name="add-circle"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="nodoPotrero" *ngFor="let itemP of item.dataAnimal[0].potreros">
+      <ion-grid>
+        <ion-row class="nodoPotreroHeader">
+          <ion-col size="2">
+            <ion-icon name="caret-down-outline" (click)="showhideP(itemP.Id)"></ion-icon>
+          </ion-col>
+          <ion-col size="6">
+            Potrero: {{itemP.nombre}}
+          </ion-col>
+          <ion-col>
+            <ion-button size="small">
+              <ion-icon name="add-circle"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div>
+        <div id="lot_{{itemL.Id}}" class="nodoLote nivelLote nivelLote_{{itemP.Id}}" *ngFor="let itemL of itemP.lotes">
+
+          <ion-grid>
+            <ion-row class="nodoLoteHeader">
+             
+              <ion-col size="6">
+                Lote: {{itemL.nombre}}
+              </ion-col>
+              <ion-col size="2">
+               
+              </ion-col>
+              <ion-col>
+
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <!-- <div class="nodoAnimal ">
+            <ion-grid>
+              <ion-row nowrap class="forecast_container">
+                <ion-col size="25">
+                  <div id="animH_{{itemL.Id}}">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col style="border: 1px solid white;">
+                          DIIO
+                        </ion-col>
+                        <ion-col style="border: 1px solid white;">
+                          Raza
+                        </ion-col>
+                        <ion-col style="border: 1px solid white;">
+                          Edad
+                        </ion-col>
+                        <ion-col style="border: 1px solid white;">
+                          Tarea Pendiente
+                        </ion-col>
+                        <ion-col style="border: 1px solid white;">
+                          Evento Sanitario
+                        </ion-col>
+                        <ion-col style="border: 1px solid white;">
+                          Vacunacion Ok
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div>
+                  <div id="anim_{{itemA.DIIO}}" *ngFor="let itemA of itemL.animales" class="nivelAnimales_{{itemL.Id}}">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col style="border: 1px solid white;">
+                          {{itemA.DIIO}}
+                        </ion-col>
+                        <ion-col style="border: 1px solid white;">
+                          {{itemA.raza}}
+                        </ion-col>
+                        <ion-col style="border: 1px solid white;">
+                          {{itemA.edad}}
+                        </ion-col>
+                        <ion-col style="border: 1px solid white;">
+                          {{itemA.tareaPendiente}}
+                        </ion-col>
+                        <ion-col style="border: 1px solid white;">
+                          {{itemA.tieneEventoSanitario}}
+                        </ion-col>
+                        <ion-col style="border: 1px solid white;">
+                          {{itemA.vacunacionAlDia}}
+                        </ion-col>
+                      </ion-row>
+
+                    </ion-grid>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </div> -->
+        </div>
+
+      </div>
+
+    </div>
+
+    <hr />
+ 
+  </div>
+</ion-content>

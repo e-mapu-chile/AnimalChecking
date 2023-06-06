@@ -1,0 +1,23 @@
+.bordeH {
+    border: 1px solid hsl(0, 0%, 100%);
+    background-color: #006e5e;
+    color: white;
+}
+
+.borde {
+    border: 1px solid #6168e0;
+    background-color: white;
+    color: green;
+}
+
+.background-image {
+    --background: url(../../../assets/img/fondoDegra2.png) 0 0/100% 100% no-repeat;
+}
+
+.background-transparent {
+    --background-color: transparent;
+}
+
+.background-header {
+    background-color: #5c958e;
+}

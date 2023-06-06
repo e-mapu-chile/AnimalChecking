@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <img src="../../../assets/logos/vacaTrasparente.png" width="50" height="50">
+        </ion-col>
+        <ion-col size="7">
+       
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button slot="end" routerLink="/menu-principal">
+      <ion-icon name="home"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background-image">
+
+  <h3>LISTADO DE EQUIPOS</h3>
+  <div *ngFor="let item of Devices">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="7">
+          {{item.name}}
+        </ion-col>
+        <ion-col size="4">
+          <ion-button (click)="vincular(item.address);">Conectar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+
+  </div>
+</ion-content>

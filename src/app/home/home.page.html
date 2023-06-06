@@ -1,0 +1,66 @@
+<ion-content [fullscreen]="true" class="background-image" no-scroll padding>
+  <div id="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="6">
+          <h1>Bienvenido</h1>
+        </ion-col>
+        <ion-col size="3">
+
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="6">
+          <img src="../../assets/logos/vacaTrasparente.png" width="150" height="150">
+        </ion-col>
+        <ion-col size="3">
+
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="6">
+          <h3>Animal Checking Platform</h3>
+        </ion-col>
+        <ion-col size="3">
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <h4>Ingreso</h4>
+
+    <form (ngSubmit)="login(fLogin)" #fLogin="ngForm" class="background-transparent">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col>
+            
+              <ion-item  color="none">
+                <ion-label position="stacked">Nombre de usuario</ion-label>
+                <br>
+                <ion-input name="nombre de usuario" type="user" [(ngModel)]="loginUser.userName" required></ion-input>
+              </ion-item>
+              <ion-item  color="none">
+                <ion-label position="stacked">Password</ion-label>
+                <br>
+                <ion-input name="password" type="password" [(ngModel)]="loginUser.password" required></ion-input>
+              </ion-item>
+          
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" color="secondary">
+              Ingresar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+  <audio #audioPlayerIntro>
+    <source src="../../assets/intro2.wav">
+  </audio>
+</ion-content>

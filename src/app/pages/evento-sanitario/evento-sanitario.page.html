@@ -1,0 +1,202 @@
+<ion-content class="background-image">
+  <ion-toolbar color="none">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <img src="../../../assets/logos/vacaTrasparente.png" width="50" height="50">
+        </ion-col>
+        <ion-col size="7">
+          <p>Animal Checking Platform</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button slot="end" routerLink="/menu-principal">
+      <ion-icon name="home"></ion-icon>
+    </ion-button>
+
+
+  </ion-toolbar>
+  <ion-item color="none"><b style="margin-left: 30%;">Registro Sanitario</b></ion-item>
+
+  <ion-slides pager="true">
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <p>Seleccione las causas sanitarias, luego deslice su pantalla para bastonear sus animales
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col class="bordeH" size="4">
+                  Enfermedad
+                </ion-col>
+                <ion-col class="bordeH" size="4">
+                  Animal Sano
+                </ion-col>
+                <ion-col class="bordeH" size="4">
+                  Parto
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="borde" size="4">
+                  <ion-select  [(ngModel)]="enfermedadSelect" name="enfermedad" interface="action-sheet">
+                    <ion-select-option value="Sin_Enfermedad">Sin Enfermedad</ion-select-option>
+                    <ion-select-option value="Brucelosis">Brucelosis</ion-select-option>
+                    <ion-select-option value="Tuberculosis">Tuberculosis</ion-select-option>
+                    <ion-select-option value="Leucosis_Enzootica">Leucosis Enzootica</ion-select-option>
+                  </ion-select>
+                </ion-col>
+                <ion-col class="borde" size="4">
+                  <ion-select  interface="action-sheet" name="contiene" [(ngModel)]="animalSanoSelect">
+                    <ion-select-option value="SI">SI</ion-select-option>
+                    <ion-select-option value="NO">NO</ion-select-option>
+
+                  </ion-select>
+                </ion-col>
+                <ion-col class="borde" size="4">
+                  <ion-select interface="action-sheet" name="partoF" [(ngModel)]="partoSelect">
+                    <ion-select-option value="No_Aplica">No Aplica</ion-select-option>
+                    <ion-select-option value="Normal">Normal</ion-select-option>
+                    <ion-select-option value="Con_Problemas">Con Problemas</ion-select-option>
+                  </ion-select>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="bordeH" size="4">
+                  Aborto
+                </ion-col>
+                <ion-col class="bordeH" size="4">
+                  Traumatismo
+                </ion-col>
+                <ion-col class="bordeH" size="4">
+                  Lugar del trauma
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="borde" size="4">
+                  <ion-select interface="action-sheet" name="abortoF" [(ngModel)]="abortoSelect" >
+                    <ion-select-option value="No_Aplica">No Aplica</ion-select-option>
+                    <ion-select-option value="SI">SI</ion-select-option>
+                    <ion-select-option value="NO">NO</ion-select-option>
+
+                  </ion-select>
+                </ion-col>
+                <ion-col class="borde" size="4">
+                  <ion-select interface="action-sheet" name="trau" [(ngModel)]="traumatismoSelect">
+                    <ion-select-option value="No_Aplica">No Aplica</ion-select-option>
+                    <ion-select-option value="SI">SI</ion-select-option>
+                    <ion-select-option value="NO">NO</ion-select-option>
+
+                  </ion-select>
+                </ion-col>
+                <ion-col class="borde" size="4">
+                  <ion-select interface="action-sheet" name="lugartrau" [(ngModel)]="lugarTraumaSelect">
+                    <ion-select-option value="No_Aplica">No Aplica</ion-select-option>
+                    <ion-select-option value="Cabeza">Cabeza</ion-select-option>
+                    <ion-select-option value="Tronco">Tronco</ion-select-option>
+                    <ion-select-option value="Pierna_Izquierda">Pierna Izquierda</ion-select-option>
+                    <ion-select-option value="Pierna_Derecha">Pierna Derecha</ion-select-option>
+
+
+                  </ion-select>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="bordeH" size="4">
+                  Descorne
+                </ion-col>
+                <ion-col class="bordeH" size="4">
+                  Castración
+                </ion-col>
+                <ion-col class="bordeH" size="4">
+                  Técnica de Castración
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="borde" size="4">
+                  <ion-select interface="action-sheet" name="descr" [(ngModel)]="descorneSelect">
+                    <ion-select-option value="No_Aplica">No Aplica</ion-select-option>
+                    <ion-select-option value="SI">SI</ion-select-option>
+                    <ion-select-option value="NO">NO</ion-select-option>
+
+                  </ion-select>
+                </ion-col>
+                <ion-col class="borde" size="4">
+                  <ion-select interface="action-sheet" name="castr" [(ngModel)]="castracionSelect">
+                    <ion-select-option value="No_Aplica">No Aplica</ion-select-option>
+                    <ion-select-option value="SI">SI</ion-select-option>
+                    <ion-select-option value="NO">NO</ion-select-option>
+
+                  </ion-select>
+                </ion-col>
+                <ion-col class="borde" size="4">
+                  <ion-select interface="action-sheet" name="tecastr" [(ngModel)]="tecnicaCastracionSelect">
+                    <ion-select-option value="No_Aplica">No Aplica</ion-select-option>
+                    <ion-select-option value="Descubierto">Descubierto</ion-select-option>
+                    <ion-select-option value="Burdizo">Burdizo</ion-select-option>
+                    <ion-select-option value="Elastrador">Elastrador</ion-select-option>
+
+                  </ion-select>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="bordeH" size="12">
+                  Observaciones
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="borde" size="12" >
+                  <ion-textarea rows="4" cols="10" [(ngModel)]="observacionTxt"></ion-textarea>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </ion-slide>
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <p>Utilice su bastón para agregar los animales al registro sanitario
+            </p>
+          </ion-col>
+
+        </ion-row>
+        <ion-row>
+          <ion-col size="3">
+
+            <ion-button size="small" color="danger" (click)="quitarClick()"> Quitar DIIO</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col class="bordeH" size="12">
+                  DIIO
+                </ion-col>
+
+              </ion-row>
+              <ion-row *ngFor="let item of this.animales">
+                <ion-col class="borde" size="12">
+                  {{item.diio}}
+                </ion-col>
+
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+
+  </ion-slides>
+  <ion-item></ion-item>
+
+</ion-content>

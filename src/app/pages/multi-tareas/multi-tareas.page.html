@@ -1,0 +1,412 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid class="background-header">
+      <ion-row>
+        <ion-col size="3">
+          <img src="../../../assets/logos/vacaTrasparente.png" width="50" height="50">
+        </ion-col>
+        <ion-col size="2">
+          <!-- <div *ngIf="esCelular">
+            <ion-icon *ngIf="!bluetoothActivo" class="indicadorBlueInactivo" name="bluetooth"></ion-icon>
+            <ion-icon *ngIf="bluetoothActivo" class="indicadorBlueActivo" name="bluetooth"></ion-icon>
+          </div> -->
+        </ion-col>
+        <ion-col size="3">
+        </ion-col>
+        <ion-col size="2">
+          <ion-button (click)="guardarMultiTarea();">
+            <ion-icon name="save"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="2">
+          <ion-button routerLink="/menu-principal">
+            <ion-icon name="home"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="background-image" no-scroll padding>
+  <ion-item color="none"><b style="margin-left: 27%;">Registro Multi-Tareas</b></ion-item>
+  <ion-card color="verdelote">
+    <ion-item color="none">
+      <img slot="start" src="../../../assets/icon/vaca.png" width="35" height="30">
+      <ion-label>Lote / KG Animal</ion-label>
+      <ion-button fill="outline" slot="end" style="color:white" (click)="minMaxTarjeta1();">
+        <ion-icon name="chevron-down-circle"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-card-content *ngIf="!minimizarTarjeta1">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="bordeH" size="12">
+            Nombre del Lote
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="12">
+            <ion-input type="text" class="input" name="nomLote" [(ngModel)]="nombreloteTxt"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="bordeH" size="6">
+            Peso KG Animal
+          </ion-col>
+          <ion-col class="bordeH" size="6">
+            Ubicación del Lote
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="6">
+            <ion-input type="number" class="input" name="kg" [(ngModel)]="pesoKgTxt"></ion-input>
+          </ion-col>
+          <ion-col class="borde" size="6">
+            <ion-input type="text" class="input" name="ubi" [(ngModel)]="ubicacionLoteTxt"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="morado">
+    <ion-item color="none">
+      <img slot="start" src="../../../assets/icon/virus.png" width="30" height="30">
+      <ion-label>Enfermedades</ion-label>
+      <ion-button fill="outline" slot="end" style="color:white" (click)="minMaxTarjeta2();">
+        <ion-icon name="chevron-down-circle"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-card-content *ngIf="!minimizarTarjeta2">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="bordeH" size="6">
+            Enfermedad
+          </ion-col>
+          <ion-col class="bordeH" size="6">
+            Contiene Enfermedad
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="6">
+            <b>Tuberculosis</b>
+          </ion-col>
+          <ion-col class="borde" size="6">
+            <ion-select name="tbb" interface="action-sheet" [(ngModel)]="contieneTbbValue"
+              (ionChange)="OnChangeContieneTBB($event)">
+              <ion-select-option value="SinInformacion">Sin Información</ion-select-option>
+              <ion-select-option value="TBB_NO">NO</ion-select-option>
+              <ion-select-option value="TBB_SI">SI</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="6">
+            <b>Brucelosis</b>
+          </ion-col>
+          <ion-col class="borde" size="6">
+            <ion-select name="bb" interface="action-sheet" [(ngModel)]="contieneBBValue"
+              (ionChange)="OnChangeContieneBB($event)">
+              <ion-select-option value="SinInformacion">Sin Información</ion-select-option>
+              <ion-select-option value="BB_NO">NO</ion-select-option>
+              <ion-select-option value="BB_SI">SI</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="6">
+            <b>Leucosis Enzootica</b>
+          </ion-col>
+          <ion-col class="borde" size="6">
+            <ion-select name="le" interface="action-sheet" [(ngModel)]="contieneLEValue"
+              (ionChange)="OnChangeContieneLE($event)">
+              <ion-select-option value="SinInformacion">Sin Información</ion-select-option>
+              <ion-select-option value="LE_NO">NO</ion-select-option>
+              <ion-select-option value="LE_SI">SI</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="rojosanitario">
+    <ion-item color="none">
+      <img slot="start" src="../../../assets/icon/sanitariaCondicion.png" width="30" height="30">
+      <ion-label>Condición Sanitaria</ion-label>
+      <ion-button fill="outline" slot="end" style="color:white" (click)="minMaxTarjeta3();">
+        <ion-icon name="chevron-down-circle"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-card-content *ngIf="!minimizarTarjeta3">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="bordeH" size="6">
+            Evento Sanitario
+          </ion-col>
+          <ion-col class="bordeH" size="6">
+            Condición
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="6">
+            Parto
+          </ion-col>
+          <ion-col class="borde" size="6">
+            <ion-select name="parto" interface="action-sheet" [(ngModel)]="partoValue"
+              (ionChange)="OnChangeParto($event)">
+              <ion-select-option value="SinInformacion">Sin Información</ion-select-option>
+              <ion-select-option value="NO">NO</ion-select-option>
+              <ion-select-option value="SI">SI</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="6">
+            Aborto
+          </ion-col>
+          <ion-col class="borde" size="6">
+            <ion-select name="aborto" interface="action-sheet" [(ngModel)]="abortoValue"
+              (ionChange)="OnChangeAborto($event)">
+              <ion-select-option value="SinInformacion">Sin Información</ion-select-option>
+              <ion-select-option value="NO">NO</ion-select-option>
+              <ion-select-option value="SI">SI</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="6">
+            Traumatismo
+          </ion-col>
+          <ion-col class="borde" size="6">
+            <ion-select name="lote" interface="action-sheet" [(ngModel)]="traumatismoValue"
+              (ionChange)="OnChangeTraumatismo($event)">
+              <ion-select-option value="SinInformacion">Sin Información</ion-select-option>
+              <ion-select-option value="NO">NO</ion-select-option>
+              <ion-select-option value="SI">SI</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="6">
+            Descorne
+          </ion-col>
+          <ion-col class="borde" size="6">
+            <ion-select name="lote" interface="action-sheet" [(ngModel)]="descorneValue"
+              (ionChange)="OnChangeDescorne($event)">
+              <ion-select-option value="SinInformacion">Sin Información</ion-select-option>
+              <ion-select-option value="NO">NO</ion-select-option>
+              <ion-select-option value="SI">SI</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="6">
+            Castración
+          </ion-col>
+          <ion-col class="borde" size="6">
+            <ion-select name="lote" interface="action-sheet" [(ngModel)]="castracionValue"
+              (ionChange)="OnChangeCastracion($event)">
+              <ion-select-option value="SinInformacion">Sin Información</ion-select-option>
+              <ion-select-option value="NO">NO</ion-select-option>
+              <ion-select-option value="SI">SI</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="bordeH" size="12">
+            Observaciones
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="12">
+            <ion-textarea rows="3" cols="10" [(ngModel)]="observacionTxt"></ion-textarea>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="azulanimal">
+    <ion-item color="none">
+      <img slot="start" src="../../../assets/icon/vacuna.png" width="30" height="35">
+      <ion-label>Medicamento</ion-label>
+      <ion-button fill="outline" slot="end" style="color:white" (click)="minMaxTarjeta4();">
+        <ion-icon name="chevron-down-circle"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-card-content *ngIf="!minimizarTarjeta4">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="bordeH" size="12">
+            Nombre Medicamento
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="12">
+            <ion-input type="text" [(ngModel)]="nombreMedicamento"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="bordeH" size="6">
+            Tipo Medicamento
+          </ion-col>
+          <ion-col class="bordeH" size="6">
+            Presentación
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="6">
+            <ion-select name="tipoMedicamento" [(ngModel)]="tipoMedicamento" interface="action-sheet">
+              <ion-select-option value="NoAplica">No Aplica</ion-select-option>
+              <ion-select-option value="Antibiotico">Antibiotico</ion-select-option>
+              <ion-select-option value="Antiparacito">Antiparacito</ion-select-option>
+              <ion-select-option value="Antialergico">Antialergico</ion-select-option>
+              <ion-select-option value="Suplemento">Suplemento</ion-select-option>
+              <ion-select-option value="Anabolico">Anabolico</ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col class="borde" size="6">
+            <ion-select name="presentacion" [(ngModel)]="presentacion" interface="action-sheet">
+              <ion-select-option value="NoAplica">No Aplica</ion-select-option>
+              <ion-select-option value="Inyectable">Inyectable</ion-select-option>
+              <ion-select-option value="Oral">Oral</ion-select-option>
+              <ion-select-option value="Intravenosa">Intravenosa</ion-select-option>
+              <ion-select-option value="Ovoide">Ovoide</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="bordeH" size="6">
+            Dosis X Animal
+          </ion-col>
+          <ion-col class="bordeH" size="6">
+            N° Receta
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="6">
+            <ion-input type="number" name="dosis" [(ngModel)]="dosis"></ion-input>
+          </ion-col>
+          <ion-col class="borde" size="6">
+            <ion-input type="number" name="receta" [(ngModel)]="receta"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button style="width: 95%;" (click)="aplicarMedicamento();">Aplicar Medicamento</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="9" class="bordeH">
+            Item
+          </ion-col>
+          <ion-col size="3" class="bordeH">
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of medicamentoAplicado">
+          <ion-col class="borde" size="9">
+            {{item.nombre}} | {{item.tipoMedicamento}} | {{item.dosis}}
+          </ion-col>
+          <ion-col class="borde" size="3">
+            <ion-button size="small" color="danger" (click)="quitarMedicamento(item.nombre)">X</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="naranjo1">
+    <ion-item color="none">
+      <img slot="start" src="../../../assets/icon/forraje.png" width="35" height="30">
+      <ion-label>Alimentación</ion-label>
+      <ion-button fill="outline" slot="end" style="color:white" (click)="minMaxTarjeta5();">
+        <ion-icon name="chevron-down-circle"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-card-content *ngIf="!minimizarTarjeta5">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="bordeH" size="6">
+            Tipo Alimento
+          </ion-col>
+          <ion-col class="bordeH" size="6">
+            Unidades Aplicadas
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="borde" size="6">
+            <ion-select name="tipoAlimento" interface="action-sheet" [(ngModel)]="tipoAlimentoValue"
+              (ionChange)="OnChangeTipoAlimento($event)">
+              <ion-select-option value="NoAplica">No Aplica</ion-select-option>
+              <ion-select-option value="Heno">Heno</ion-select-option>
+              <ion-select-option value="Suplemento">Suplemento</ion-select-option>
+              <ion-select-option value="Pastoreo">Pastoreo</ion-select-option>
+              <!--SE ASUME QUE SI NO ESTAN CON FORRAJE EL LOTE ESTA EN PASTOREO -->
+            </ion-select>
+          </ion-col>
+          <ion-col class="borde" size="6">
+            <ion-input type="number" class=" input" [(ngModel)]="unidadesAplicadas"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="azul2">
+    <ion-item color="none">
+      <img slot="start" src="../../../assets/icon/vaca.png" width="35" height="30">
+      <ion-label>Animales Aplicados</ion-label>
+      <ion-button fill="outline" slot="end" style="color:white">
+        <ion-icon name="chevron-down-circle"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <p>Utilice su bastón para agregar los animales al registro
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3">
+            <ion-button size="small" color="danger" (click)="quitarClick()"> Quitar DIIO</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col class="bordeH" size="12">
+                  DIIO
+                </ion-col>
+              </ion-row>
+              <ion-row *ngFor="let item of this.animales">
+                <ion-col class="borde" size="12">
+                  {{item.diio}}
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <audio #audioPlayer1>
+    <source src="../../../assets/beep7.mp3">
+  </audio>
+  <audio #audioPlayer2>
+    <source src="../../../assets/yaExisteDIIO.mp3">
+  </audio>
+  <audio #audioPlayer3>
+    <source src="../../../assets/quitarDIIO.mp3">
+  </audio>
+  <audio #audioPlayer4>
+    <source src="../../../assets/DIIOOk.mp3">
+  </audio>
+</ion-content>

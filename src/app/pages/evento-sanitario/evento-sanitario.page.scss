@@ -1,0 +1,26 @@
+.bordeH {
+    border: 1px solid white;
+    background-color: #e06168;
+    color: white;
+    font-size: smaller;
+  }
+
+  .borde {
+    border: 1px solid #e06168;
+    background-color: white;
+    color: green;
+    font-size: smaller;
+  }
+  .background-image {
+    --background: url(../../../assets/img/fondoDegra2.png) 0 0/100% 100% no-repeat;
+  }
+  
+  .background-transparent {
+    --background-color: transparent;
+  }
+
+  .select-full-width {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+  }

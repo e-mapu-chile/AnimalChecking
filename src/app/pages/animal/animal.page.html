@@ -1,0 +1,238 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <img src="../../../assets/logos/vacaTrasparente.png" width="50" height="50">
+        </ion-col>
+        <ion-col size="7">
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button slot="end" routerLink="/menu-principal">
+      <ion-icon name="home"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background-image" no-scroll padding>
+  <div style="margin:2%;">
+    <ion-item color="none"><b style="margin-left: 27%;">Consulta Animal</b></ion-item>
+    <p>Utilice su bastón para leer el DIIO. Para ver mapa deslice la pantalla</p>
+    <ion-label>Número DIIO</ion-label>
+    <ion-item color="none">
+      <ion-input id="diioTxt" type="text" [(ngModel)]="diio" (ionBlur)="onChangeDiio($event)"></ion-input>
+    </ion-item>
+    <hr>
+    
+
+    <div class="ion-padding">
+      <ion-card>
+        <ion-card-header> Alimentación </ion-card-header>
+        <ion-card-content>
+          <canvas #barCanvas style="background-color: white;"></canvas>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header> Evolución Peso KG </ion-card-header>
+        <ion-card-content>
+          <canvas #lineCanvas style="background-color: white;"></canvas>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header> Doughnut Chart </ion-card-header>
+        <ion-card-content>
+          <canvas #doughnutCanvas style="background-color: white;"></canvas>
+        </ion-card-content>
+      </ion-card>
+      
+    </div>
+
+
+
+
+    
+    <ion-card color="amarillotarea">
+      <ion-item color="none">
+        <img slot="start" src="../../../assets/icon/sag.png" width="30" height="30">
+        <ion-label>Datos Oficiales SAG</ion-label>
+        <ion-button fill="outline" slot="end"></ion-button>
+      </ion-item>
+
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="bordeH" size="4">
+              Clase
+            </ion-col>
+            <ion-col class="bordeH" size="4">
+              Edad
+            </ion-col>
+            <ion-col class="bordeH" size="4">
+              Sexo
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="borde" size="4">
+              {{clase}}
+            </ion-col>
+            <ion-col class="borde" size="4">
+              {{edad}}
+            </ion-col>
+            <ion-col class="borde" size="4">
+              {{sexo}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="bordeH" size="4">
+              Fecha Nacimiento
+            </ion-col>
+            <ion-col class="bordeH" size="4">
+              Raza
+            </ion-col>
+            <ion-col class="bordeH" size="4">
+              Nombre Predio
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="borde" size="4">
+              {{fechaNacimiento}}
+            </ion-col>
+            <ion-col class="borde" size="4">
+              {{raza}}
+            </ion-col>
+            <ion-col class="borde" size="4">
+              {{nombrePredio}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="bordeH" size="4">
+              Pabco
+            </ion-col>
+            <ion-col class="bordeH" size="4">
+              Exportable UE
+            </ion-col>
+            <ion-col class="bordeH" size="4">
+              Exportable China
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="borde" size="4">
+              {{pabco}}
+            </ion-col>
+            <ion-col class="borde" size="4">
+              {{exportableUE}}
+            </ion-col>
+            <ion-col class="borde" size="4">
+              {{exportableChina}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="bordeH" size="4">
+              Nacido Chile
+            </ion-col>
+            <ion-col class="bordeH" size="4">
+              Movimiento Fuera Plazo
+            </ion-col>
+
+            <ion-col class="bordeH" size="4">
+              Estado Rup Actual
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="borde" size="4">
+              {{nacidoChile}}
+            </ion-col>
+            <ion-col class="borde" size="4">
+              {{movimientoFueraPlazo}}
+            </ion-col>
+            <ion-col class="borde" size="4">
+              {{estadoRupActual}}
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col class="bordeH" size="4">
+              Estado Animal
+            </ion-col>
+            <ion-col class="bordeH" size="4">
+              Trazabilidad Completa
+            </ion-col>
+            <ion-col class="bordeH" size="4">
+              Trazabilidad Nacimiento
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="borde" size="4">
+              {{estadoAnimal}}
+            </ion-col>
+            <ion-col class="borde" size="4">
+              {{trazabilidadCompleta}}
+            </ion-col>
+            <ion-col class="borde" size="4">
+              {{trazabilidadNacimiento}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="bordeH" size="4">
+              Uso Anabolicos
+            </ion-col>
+            <ion-col class="bordeH" size="4">
+
+            </ion-col>
+            <ion-col class="bordeH" size="4">
+
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col class="borde" size="4">
+              {{usoAnabolicos}}
+            </ion-col>
+            <ion-col class="borde" size="4">
+
+            </ion-col>
+            <ion-col class="borde" size="4">
+
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="bordeH" size="4">
+              Rup Actual
+            </ion-col>
+            <ion-col class="bordeH" size="4">
+              Rup Origen
+            </ion-col>
+            <ion-col class="bordeH" size="4">
+              Rup Ultimo Movimiento
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="borde" size="4">
+              {{rupActual}}
+            </ion-col>
+            <ion-col class="borde" size="4">
+              {{rupOrigen}}
+            </ion-col>
+            <ion-col class="borde" size="4">
+              {{rupUltimoMovimiento}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+
+
+
+
+
+
+  </div>
+
+  <audio #audioPlayer>
+    <source src="../../../assets/beep7.mp3">
+  </audio>
+</ion-content>
